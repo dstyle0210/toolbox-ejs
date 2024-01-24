@@ -24,10 +24,10 @@
     <div class="dummy">본문 어쩌구 내용</div>
     <section class="tab" id="demoTab">
         <ul>
-            <li class="-on"><a href="#">탭0</a></li>
-            <li><a href="#">탭1</a></li>
-            <li><a href="#">탭2</a></li>
-            <li><a href="#">탭3</a></li>
+            <li class="-on"><a href="#" onclick="go('#tab0');return false;">탭0</a></li>
+            <li><a href="#tab1" onclick="go('#tab1');return false;">탭1</a></li>
+            <li><a href="#" onclick="go('#tab2');return false;">탭2</a></li>
+            <li><a href="#" onclick="go('#tab3');return false;">탭3</a></li>
         </ul>
     </section>
     <div class="tabContentWrapper" id="tabContentWrapper">
@@ -40,6 +40,10 @@
     <div class="dummy2">하단 어쩌구 내용</div>
 </main>
 <script>
+function go(selector){
+    $("html,body").animate({scrollTop:$(selector).offset().top - 50},300);
+    return false;
+}
 function tabUi(){
     // 탭 컨덴츠의 높이값 증분배열 구하기
     let tabIdx = 0;
