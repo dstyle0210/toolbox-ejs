@@ -1,0 +1,28 @@
+<!-- PAGEDOC
+@since 2023.01.24
+@author mabongpapa
+@page [P] Example > GSAP > ScrollTrigger
+-->
+<include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
+<script src="https://unpkg.com/scrollreveal"></script> <!-- const ScrollReveal -->
+<main>
+    <div style="height:1500px;">앞에 내용</div>
+    <h1 class="headline">
+        Widget Inc.
+    </h1>
+    <p class="tagline">
+        The perfect widgets.
+        <span class="punchline">Forever.</span>
+    </p>
+    <script>
+        /*
+        스크롤 상에 잡히면 실행 되는듯.
+        .reveal() : 잡히면, tts적용시켜놓고, 스크롤상 보이면(observer인가?) delay 지연 후에 보여짐.
+        
+        */
+        ScrollReveal().reveal('.headline');
+        ScrollReveal().reveal('.tagline', { delay: 500 });
+        ScrollReveal().reveal('.punchline', { delay: 2000 });
+    </script>
+</main>
+<include src="../../../layouts/footer/footer.html"></include>

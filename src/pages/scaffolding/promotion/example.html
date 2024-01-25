@@ -1,0 +1,43 @@
+<!-- PAGEDOC
+@since 2023.01.24
+@author mabongpapa
+@page [P] Scaffolding > Promotion > 
+-->
+<include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> <!-- const gsap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="/assets/css/example.css">
+<% const bgColorPkgClass = ["-gray","-blue","-orange","-red","-purple","-green"]; %>
+
+
+<style>
+.heart{position:absolute;top:0;bottom:0;left:0;right:0;
+    display:flex;justify-content:center;align-items:center;
+}
+.bg{width:100px;height:100px;background:#f9acac;}
+</style>
+<main>
+    <article class="page">
+        <div class="heart">
+            <span class="bg"></span>
+        </div>
+    </article>
+</main>
+<script>
+    
+    /*
+    const tl = gsap.timeline();
+    tl.to(".heart",{scale:1,duration:0.5});
+
+    ScrollTrigger.create({
+        animation:tl,
+        trigger:".heart",
+        start:"top center",
+        end:"+=2000",
+        scrub:true,
+        pin:true,
+        markers:true,
+    });
+    */
+</script>
+<include src="../../../layouts/footer/footer.html"></include>
