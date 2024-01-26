@@ -1,0 +1,30 @@
+/*! font */
+// font-weight 계열
+.t-bold{font-weight:bold!important;}
+.t-normal{font-weight:normal!important;}
+
+// align 계열
+.t-left{text-align:left;}
+.t-center{text-align:center;}
+.t-right{text-align:right;}
+
+// size 계열
+@for $i from 11 through 14 {
+    .t-#{$i} {font-size:#{$i}px!important;}
+}
+@for $i from 14 through 32 {
+    @if $i%2 == 0 {
+        .t-#{$i} {font-size:#{$i}px!important;}
+    }
+}
+.t-36{font-size:36px;}
+.t-40{font-size:40px;}
+
+$defaultColor:#424344;
+
+/*! heading */
+.hd-xs{font-weight:bold;font-size:14px;color:$defaultColor;}
+.hd-sm{font-weight:bold;font-size:16px;color:$defaultColor;}
+.hd-nm{font-weight:bold;font-size:18px;color:$defaultColor;}
+.hd-lg{font-weight:bold;font-size:22px;color:$defaultColor;}
+.hd-xl{font-weight:bold;font-size:32px;color:$defaultColor;}

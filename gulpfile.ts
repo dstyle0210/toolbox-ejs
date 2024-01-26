@@ -100,7 +100,7 @@ task("sitemap",series("html:compiler","sitemap:save"));
 const compilerSeries = compilers.map((taskItem)=>taskItem.name+":compiler");
 const watcherSeries = watchers.map((taskItem)=>taskItem.name+":watcher");
 task("compile",series("lib:copy",...compilerSeries,"image:copy","guide:compiler"));
-task("watch",series(...watcherSeries));
+task("watch",series(...watcherSeries,"guide:watcher"));
 
 // 퍼블시작
 task("dev",series("watch","compile","sitemap:save","server:dev"));

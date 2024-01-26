@@ -25,7 +25,7 @@ a:hover{text-decoration:underline;}
 }
 pre code.hljs{margin:0;display:block;padding:10px;}
 .pane{position:relative;width:100%;}
-.pane .example{padding:10px;}
+.pane .example{padding:10px;border:1px dashed #ccc;border-radius:6px;}
 .pane i.codeIcon{position:absolute;top:0;right:15px;}
 .pane .codeBlock{display:none;}
 .pane .example i.codeIcon{color:#000;}

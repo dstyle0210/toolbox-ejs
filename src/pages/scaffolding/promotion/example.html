@@ -11,30 +11,98 @@
 
 
 <style>
-.heart{position:absolute;top:0;bottom:0;left:0;right:0;
-    display:flex;justify-content:center;align-items:center;
-}
-.bg{width:100px;height:100px;background:#f9acac;}
+.none{height:300px;}
+.motion{width:100%;height:100vh;background:#f5f5f5;overflow:hidden;}
+.layer{position:absolute;top:0;bottom:0;left:0;right:0;display:flex;justify-content:center;align-items:center;}
+.heart{display:block;width:100px;height:100px;background:#f9acac;}
+.text{color:#fff;}
+.text2{color:red;}
+.pane{margin-top:auto;width:100%;height:70vh;background:#fff;}
+.content{width:100%;height:200vh;background:#f5f5f5;border-top:1px dashed #ccc;}
 </style>
 <main>
-    <article class="page">
-        <div class="heart">
-            <span class="bg"></span>
+    <article class="motion">
+        <div class="layer"><span class="heart"></span></div>
+        <div class="layer"><span class="text">텍스트</span></div>
+        <div class="layer"><span class="text2">나타날글자</span></div>
+        <div class="layer">
+            <div class="pane">판넬</div>
+        </div>
+        <div class="layer">
+            <div class="content">
+                본문
+            </div>
         </div>
     </article>
 </main>
 <script>
-    
+ScrollTrigger.config({autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"});
+
+const tl = gsap.timeline({defaults:{duration:2}});
+    tl.to(".heart",{scale:10,duration:1})
+    .to(".text",{opacity:0},0)
+    .from(".text2",{opacity:0},1)
+    .from(".pane",{yPercent:100},">2")
+    .from(".content",{yPercent:100,duration:10})
+    .to(".heart",{opacity:0},"<3")
+
+ScrollTrigger.create({
+    animation:tl,
+    trigger:".motion",
+    start:"top top",
+    end:"+=3000px bottom",
+    scrub:true,
+    pin:true,
+    pinSpacing:true,
+    // markers:true,
     /*
-    const tl = gsap.timeline();
-    tl.to(".heart",{scale:1,duration:0.5});
+    onLeave:()=>{
+        console.log('onLeave');
+    },
+    onEnterBack:()=>{
+        console.log('onEnterBack');
+    },
+    onLeaveBack:()=>{
+        console.log('onLeaveBack');
+    }
+    */
+});
+/*
+ScrollTrigger.create({
+    trigger:".motion2",
+    start:"top bottom",
+    end:"top top",
+    scrub:true,
+    markers:true,
+    onEnter:()=>{
+        console.log('onEnter');
+    },
+    onLeave:()=>{
+        console.log('onLeave');
+    },
+    onEnterBack:()=>{
+        console.log('onEnterBack');
+    },
+    onLeaveBack:()=>{
+        console.log('onLeaveBack');
+    }
+});
+*/
+    /*
+    $(window).on("wheel",(e)=>{
+        console.log("wheel");
+        console.log(e.originalEvent.deltaY);
+    })
+    */
+
+    /*
+    
 
     ScrollTrigger.create({
         animation:tl,
         trigger:".heart",
         start:"top center",
-        end:"+=2000",
-        scrub:true,
+        end:"+=100",
         pin:true,
         markers:true,
     });

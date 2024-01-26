@@ -1,0 +1,18 @@
+<!-- PAGEDOC
+@author Mabongpapa
+@page [A] 헤딩(제목)
+@param {string} [text=""] 제목명
+@param {"xxs","xs","sm","nm","lg","xl","xxl"} [size="nm"] 제목의 크기
+-->
+<%
+    let {text,size} = props; // 객체분해 할당
+
+    // computed
+    const _text = text ?? "";
+    const _modifiers = {
+        size:size ? "-"+size : "",
+        color:color ? "-"+color : ""
+    };
+    const _class = Object.values(_modifiers).join(" ");
+%>
+<button class="a-btn <%=_class %>"><%=_text %></button>
