@@ -1,17 +1,18 @@
 /*! markdown CSS Overrite */
+.markdown-body{height:100vh;overflow:auto;}
 .markdown-body p{font-size:14px;color:#6e7781;}
 
 /*! Layout */
-.guideWrapper{display:flex;width:100%;min-width:320px;font-size:14px;}
+.guideWrapper{position:relative;height:100vh;padding-left:250px;width:100%;min-width:320px;font-size:14px;overflow:hidden;}
 
 
 a{text-decoration:none;}
 a:hover{text-decoration:underline;}
-.nav{width:250px;flex:0 0 250px;background:#1b1c1d;color:#fff;}
+.nav{position:absolute;top:0;left:0;height:100vh;width:250px;background:#1b1c1d;color:#fff;overflow:auto;}
 .nav a{color:#fff;}
 
 .menu{height:100vh;}
-.mainContent{flex:1;padding:20px;}
+.mainContent{padding:20px;}
 
 
 /*! CODE EXAMPLE */
@@ -26,7 +27,7 @@ a:hover{text-decoration:underline;}
 pre code.hljs{margin:0;display:block;padding:10px;}
 .pane{position:relative;width:100%;}
 .pane .example{padding:10px;border:1px dashed #ccc;border-radius:6px;}
-.pane i.codeIcon{position:absolute;top:0;right:15px;}
+.pane i.codeIcon{position:absolute;top:0;right:15px;z-index:99999;}
 .pane .codeBlock{display:none;}
 .pane .example i.codeIcon{color:#000;}
 .pane .codeBlock i.codeIcon{color:#fff;}

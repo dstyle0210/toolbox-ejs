@@ -10,7 +10,7 @@
 */
 @import "./setting/val.scss";
 
-*{margin:0;padding:0;}
+*{margin:0;padding:0;list-style:none;}
 *, :after, :before {box-sizing:border-box;}
 :root {-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%;text-size-adjust:100%;cursor:default;line-height:1.5;overflow-wrap:break-word;-moz-tab-size:4;tab-size:4}
 :root {overflow-wrap:break-word;word-break:break-word;}

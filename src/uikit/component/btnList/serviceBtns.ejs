@@ -1,0 +1,27 @@
+<% 
+const {btns} = locals;
+%>
+<link rel="stylesheet" href="../../../assets/css/base.css" />
+<link rel="stylesheet" href="../../../assets/css/uikit.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<script src="../../../assets/lib/swiper/swiper-bundle.min.js"></script>
+<div class="c-serviceBtns swiper" id="serviceBtns">
+    <ul class="swiper-wrapper">
+        <% btns.forEach((btn)=>{%>
+        <li class="swiper-slide">
+            <include src="../../atom/btn/serviceBtn.ejs" props="btn"></include>
+        </li>
+        <%});%>
+    </ul>
+</div>
+<script>
+  $(()=>{
+    new Swiper("#serviceBtns",{
+      slidesPerView:5,
+      spaceBetween:10,
+      grid:{
+        rows:2
+      },
+    })
+  })
+</script>

@@ -5,14 +5,12 @@
 @param {"xxs","xs","sm","nm","lg","xl","xxl"} [size="nm"] 제목의 크기
 -->
 <%
-    let {text,size} = props; // 객체분해 할당
-
-    // computed
-    const _text = text ?? "";
-    const _modifiers = {
-        size:size ? "-"+size : "",
-        color:color ? "-"+color : ""
-    };
-    const _class = Object.values(_modifiers).join(" ");
+    let {text,useMore} = Object.assign({
+        text:null,
+        useMore:false
+    },locals); // 객체분해 할당
 %>
-<button class="a-btn <%=_class %>"><%=_text %></button>
+<div class="a-heading">
+    <h1><%=text %></h1>
+    <a href="#" class="a-heading__more">더보기</a>
+</div>
