@@ -41,7 +41,26 @@
             end:"+=2000",
             scrub:true,
             pin:true,
-            markers:true
+            markers:true,
+            onEnter:() => {
+                // 트리거의 start가 뷰포트의 start를 아래에서 위로 지나갈때 발생
+                console.log("onEnter");
+                $(".tab").addClass("-fixed");
+            },
+            onEnterBack:() => {
+                console.log("onEnterBack");
+            },
+            onLeave:()=>{
+                console.log("onLeave");
+            },
+            onLeaveBack:()=>{
+                // 트리거의 start가 뷰포트의 start를 위에서 아래 지나갈때 발생
+                console.log("onLeaveBack");
+                $(".tab").removeClass("-fixed");
+            },
+            onUpdate:(self)=>{
+
+            }
         });
     </script>
 

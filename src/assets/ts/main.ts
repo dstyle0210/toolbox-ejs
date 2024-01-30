@@ -19,3 +19,5 @@ const mainFn:TmainFn = () => {
         };
     });
 };
+
+import "../../pages/scaffolding/promotion/MatchingCardGame";

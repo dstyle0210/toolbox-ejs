@@ -1,0 +1,73 @@
+<!-- PAGEDOC
+@since 2023.01.24
+@author mabongpapa
+@page [P] Scaffolding > Layout > 상단 비주얼 영역 고정, 하단 스크롤 (GSAP 이용)
+-->
+<include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> <!-- const gsap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="/assets/css/example.css">
+<% const bgColorPkgClass = ["-gray","-blue","-orange","-red","-purple","-green"]; %>
+<main>
+    <style>
+        .banner{height:40px;}
+        .search{position:fixed;top:0;left:0;right:0;z-index:3;height:40px;opacity:0;display:none;background:#fff;}
+        .search.-show{display:block;}
+        .visual{height:300px;}
+        .visual.-fixed{position:fixed;top:0;left:0;right:0;}
+        .tabWrap{height:50px;}
+        .tab{height:50px;background:#fff;}
+        .tab.-fixed{position:fixed;top:40px;left:0;right:0;z-index:3;}
+        .contentWrap{position:absolute;top:340px;left:0;width:100%;z-index:2;}
+        #tabtab{width:80%;margin:0 auto;}
+    </style>
+    <div class="banner -blue">베너영역</div>
+    <div class="search">검색창</div>
+    <div class="visual -red">비주얼영역(h:300px)</div>
+    <div class="contentWrap">
+        <div class="tabWrap">
+            <div class="tab">
+                <a href="#tabtab">바로갈꺼예요</a>탭영역
+            </div>
+            
+        </div>
+        <div class="mainContent -gray">
+            <div style="height:500px">윗본문</div>
+            <div id="tabtab" class="-purple">바로갈꺼예요</div>
+            <div style="height:1000px">아래본문</div>
+        </div>
+    </div>
+</main>
+<script>
+    $(()=>{
+        ScrollTrigger.create({
+            trigger: ".banner",
+            start: "bottom top", 
+            end:"+=10000px bottom",
+            onEnter:() => $(".visual").addClass("-fixed"),
+            onLeaveBack:()=>$(".visual").removeClass("-fixed"),
+        });
+
+        ScrollTrigger.create({
+            trigger: ".tab",
+            start: "top 40px", 
+            end:"+=10000px bottom",
+            onEnter:() => $(".tab").addClass("-fixed"),
+            onLeaveBack:()=>$(".tab").removeClass("-fixed"),
+        });
+
+        const tl = gsap.timeline({defaults:{duration:2}});
+        tl.to(".search",{opacity:1,duration:1});
+        ScrollTrigger.create({
+            animation:tl,
+            trigger: ".contentWrap",
+            start: "top 40px", 
+            end:"top top",
+            scrub:true,
+            onEnter:() => $(".search").addClass("-show"),
+            onLeaveBack:()=>$(".search").removeClass("-show")
+        });
+
+    });
+</script>
+<include src="../../../layouts/footer/footer.html"></include>

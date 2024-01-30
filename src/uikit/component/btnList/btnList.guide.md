@@ -9,4 +9,4 @@
     });
     %> 
     <include src="@src/uikit/component/btnList/serviceBtns.ejs" props="{btns:data}"></include>  
-</div>
+</div> 
