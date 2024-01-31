@@ -1,0 +1,38 @@
+<!-- PAGEDOC
+@since 2023.01.31
+@author mabongpapa
+@page [P] Example > jQuery > Canvas로 x,y 좌표 추적 및 표시
+-->
+<include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
+<main>
+    <img src="https://img.publichs.com/ECMCFO/mc_images/event/inc/event2018/0201001/imgEvent1.jpg" id="example" alt="" />
+    <script>
+        let onDrag = false; // 드래그 중인지 판단
+        let temp = []; // 드래그값 저장 배열
+        const addPos = (e) => {
+            temp.push({x:e.offsetX,y:e.offsetY}); 
+        };
+
+        $("#example").on("mousedown",(e)=>{
+            e.preventDefault(); // 이미지가 끌려가는(브라우저 속성)현상 방지
+            onDrag = true;
+            addPos(e.originalEvent);
+        }).on("mousemove",(e)=>{
+            if(onDrag){ // 드래그 중이면 넣는다.
+                addPos(e.originalEvent);
+            };
+        }).on("mouseup",(e)=>{
+            onDrag = false; // 드래그 끝
+            addPos(e.originalEvent);
+
+            // move에서 들어간 이벤트가 많으므로 속아낸다.
+            const tick = 10; // 최소 1 , 크면 클수록 결과값은 적게 나옴.
+            const result = temp.filter((pos,idx)=> (idx%10==0) );
+            temp = []; // 좌표값 초기화
+            console.log(result);
+        });
+
+
+    </script>
+</main>
+<include src="../../../layouts/footer/footer.html"></include>

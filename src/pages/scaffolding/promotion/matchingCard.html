@@ -7,6 +7,51 @@
 <link rel="stylesheet" href="/assets/css/example.css">
 <% const bgColorPkgClass = ["-gray","-blue","-orange","-red","-purple","-green"]; %>
 <main>
-    
+    <div class="cardGame" id="cardGame"></div>
+    <script>
+        /* API
+        const matchingCardGame = new UI.event.MatchingCardGame(wrapperId,options);
+
+        ## Options (default)
+        {
+            cols:2, // 가로줄 기본값
+            rows:3, // 세로줄 기본값
+            cardWidth:266, // 카드 가로값
+            cardHeight:198, // 카드 세로값
+            vertical:15, // 가로 줄 간격
+            horizontal:20, // 세로줄 간격
+            cardSrcs:[], // 카드 앞면 목록 ( (cols * rows)/2 ) 개 만큼 있어야 함.
+            backSrc:"", // 카드 뒷면 이미지
+            successCallback(){}, // 전체 짝맞추기 성공 콜백함수
+            matchingCallback(){}, //짝맞추기 성공 콜백함수
+            unmatchingCallback(){} // 짝맞추기 실패 콜백함수
+        }
+
+        ## Properties
+        {number} matchingCardGame.flipAllDelay // flipAll 메소드 실행시 전체가 뒤집히는데 걸리는 시간(ms)
+
+        ## Method
+        matchingCardGame.init(); // 초기 카드 배치(init 해야 화면이 나옴)
+        matchingCardGame.action(); // 카드 터치 가능해짐
+        matchingCardGame.flipAll(); // 카드 모두 뒤집기(뒤->앞 , 앞->뒤)
+        matchingCardGame.reset(); // 카드 재배치 , 뒷면으로 섞여서 배치 된다 , action 기능 사라짐
+        matchingCardGame.getResult(); // 현재 배치결과 , return boolean
+        matchingCardGame.on(events,callback) // 이벤트등록 , 하단 "Events" 참고
+        
+        ## Events
+        "matching" : 짝맞추기 성공
+        "unmatching" : 짝맞추기 실패
+        "success" : 전체 짝맞추기 성공
+    */
+        $(()=>{
+            const matchingCardGame = new MatchingCardGame("#cardGame",{
+                cardSrcs:["/images/sample.png","/images/sample.png","/images/sample.png","/images/sample.png","/images/sample.png","/images/sample.png"],
+                backSrc:"/images/sample.png",
+            });
+            matchingCardGame.init();
+            matchingCardGame.action();
+            console.log( matchingCardGame );
+        })
+    </script>
 </main>
-<include src="../../../layouts/footer/footer.html"></include>
+<include src="../../../layouts/footer/footer.html"></include> 

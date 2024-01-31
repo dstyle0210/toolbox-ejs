@@ -1,0 +1,32 @@
+<!-- PAGEDOC
+@since 2023.01.24
+@author mabongpapa
+@page [P] Scaffolding > Layout > 헤더와 별도였다가 붙는 탭
+-->
+<include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> <!-- const gsap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="/assets/css/example.css">
+<% const bgColorPkgClass = ["-gray","-blue","-orange","-red","-purple","-green"]; %>
+
+
+<style>
+    .layoutWrap{padding-top:50px;}
+    .headerTab{height:50px;position:fixed;top:0;left:0;width:100%;border-bottom:1px dashed #ccc;}
+    .dummy{height:100vh;}
+    .dummy2{height:100vh;}
+</style>
+<main>
+    <div class="layoutWrap">
+        <div class="headerTab -gray">헤더탭</div>
+        <div class="dummy">본문 어쩌구 내용</div>
+        <div class="dummy2">하단 어쩌구 내용</div>
+    </div>
+</main>
+<script>
+
+$(window).on("scroll",()=>{
+    console.log(window.scrollY);
+});
+</script>
+<include src="../../../layouts/footer/footer.html"></include>
