@@ -1,0 +1,54 @@
+<!-- PAGEDOC
+@since 2023.01.24
+@author mabongpapa
+@page [P] Example > GSAP > ScrollTrigger
+-->
+<include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> <!-- const gsap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<link rel="stylesheet" href="/assets/css/example.css">
+<% const bgColorPkgClass = ["-gray","-blue","-orange","-red","-purple","-green"]; %>
+<style>
+    html,body,main{width:100%;height:100%;}
+    main{display:flex;align-items: center;justify-content: center;}
+    #test{width:200px;height:200px;background:blue;}
+    #trigger{width:300px;height:300px;background:#f5f5f5;}
+</style>
+<main>
+    <div id="test"></div>
+    <div id="trigger"></div>
+
+    <script>
+        let nowX = -2160;
+        let startX = 0;
+        let isDrag = false;
+        $("#trigger2").on("mousemove",()=>{
+            console.log("c");
+        });
+
+        $("#trigger").on("mousedown",(e)=>{
+            e.preventDefault(); // 이미지가 끌려가는(브라우저 속성)현상 방지
+            isDrag = true;
+            startX = e.originalEvent.offsetX;
+            console.log(`mousedown : ${startX}`);
+        }).on("mousemove",(e)=>{
+            if(isDrag){
+                rotate( Math.floor((startX - e.originalEvent.offsetX )/3) );
+            }
+        }).on("mouseup",(e)=>{
+            isDrag = false;
+            startX = e.originalEvent.offsetX;
+            nowX = nowX + startX;
+            console.log(`mouseup : ${startX}`);
+        });
+        function rotate(deg){
+            console.log(deg);
+            const test= document.getElementById("test");
+            test.style.transform = `rotate(${nowX - deg}deg)`;
+        }
+        rotate(0);
+        
+    </script>
+
+</main>
+<include src="../../../layouts/footer/footer.html"></include>
