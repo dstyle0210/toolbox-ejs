@@ -12,21 +12,49 @@
 
 <style>
     .layoutWrap{padding-top:50px;}
-    .headerTab{height:50px;position:fixed;top:0;left:0;width:100%;border-bottom:1px dashed #ccc;}
-    .dummy{height:100vh;}
-    .dummy2{height:100vh;}
+    .layoutWrap.-scrollUp .headerTab{top:-50px;}
+    .layoutWrap.-tabFixed .middleTab{position:fixed;top:50px;left:0;width:100%;}
+    .layoutWrap.-scrollUp.-tabFixed .middleTab{top:0;}
+    .headerTab{height:50px;position:fixed;top:0;left:0;width:100%;border-bottom:1px dashed #ccc;transition: top .5s;}
+    .middleTabWrap{height:50px;} /* scrollTrigger의 기준점 , 탭과 높이가 같아야 함 (스크롤영역에 영향) */
+    .middleTab{height:50px;transition: top .5s;}
+    .dummy{height:50vh;}
+    .dummy2{height:200vh;}
 </style>
 <main>
-    <div class="layoutWrap">
-        <div class="headerTab -gray">헤더탭</div>
-        <div class="dummy">본문 어쩌구 내용</div>
+    <div class="layoutWrap" id="layoutWrap">
+        <div class="headerTab -gray" id="headerTab">헤더탭</div>
+        <div class="dummy -green">본문 어쩌구 내용</div>
+        <div class="middleTabWrap" id="middleTabWrap">
+            <div class="middleTab -blue" id="middleTab">중간탭</div>
+        </div>
         <div class="dummy2">하단 어쩌구 내용</div>
     </div>
 </main>
 <script>
-
-$(window).on("scroll",()=>{
-    console.log(window.scrollY);
+$(()=>{
+    let prevScrollY;
+    let tick;
+    $(window).on("scroll",()=>{
+        clearTimeout(tick);
+        tick = setTimeout(()=>{
+            if(prevScrollY < window.scrollY){
+                $("#layoutWrap").addClass("-scrollUp");
+                ScrollTrigger.refresh(); // scrollTriger의 start 값을 다시 잡기 위해 refreash 처리.
+            }else if(prevScrollY > window.scrollY){
+                $("#layoutWrap").removeClass("-scrollUp");
+                ScrollTrigger.refresh(); // scrollTriger의 start 값을 다시 잡기 위해 refreash 처리.
+            };
+            prevScrollY = window.scrollY;
+        },20);
+    });
+    ScrollTrigger.create({
+        trigger: "#middleTabWrap", // 탭의 기준점이자, 탭의 높이 영역만큼 확보
+        start: ()=>`top ${($("#layoutWrap").hasClass("-scrollUp") ? "top" : "50px")}`,
+        end: `+=9999px`,
+        onEnter:()=>$("#layoutWrap").addClass("-tabFixed"),
+        onLeaveBack:()=>$("#layoutWrap").removeClass("-tabFixed")
+    });
 });
 </script>
 <include src="../../../layouts/footer/footer.html"></include>
