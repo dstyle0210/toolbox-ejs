@@ -5,15 +5,25 @@
 -->
 <include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
 <main>
-    <img src="https://img.publichs.com/ECMCFO/mc_images/event/inc/event2018/0201001/imgEvent1.jpg" id="example" alt="" />
+    <style>
+        .map{display:flex;}
+        .map .img{flex:0 0 320px;width:320px;}
+        .map .img img{width:100%;height:auto;}
+        .map .result{flex:1;font-size:14px;}
+    </style>
+    <div class="map">
+        <div class="img"><img src="https://img.publichs.com/ECMCFO/mc_images/event/inc/event2018/0201001/imgEvent1.jpg" id="mapImg" alt="" /></div>
+        <div class="result" id="result"></div>
+    </div>
+    
     <script>
         let onDrag = false; // 드래그 중인지 판단
         let temp = []; // 드래그값 저장 배열
         const addPos = (e) => {
-            temp.push({x:e.offsetX,y:e.offsetY}); 
+            temp.push({x:e.offsetX,y:e.offsetY});
         };
 
-        $("#example").on("mousedown",(e)=>{
+        $("#mapImg").on("mousedown",(e)=>{
             e.preventDefault(); // 이미지가 끌려가는(브라우저 속성)현상 방지
             onDrag = true;
             addPos(e.originalEvent);
@@ -29,7 +39,10 @@
             const tick = 10; // 최소 1 , 크면 클수록 결과값은 적게 나옴.
             const result = temp.filter((pos,idx)=> (idx%10==0) );
             temp = []; // 좌표값 초기화
-            console.log(result);
+
+            // 결과표시
+            $("#result").empty();
+            $("#result").html(JSON.stringify(result));
         });
 
 
