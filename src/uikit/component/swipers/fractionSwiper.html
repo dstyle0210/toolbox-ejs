@@ -1,0 +1,35 @@
+
+<%
+    const id = locals.id;
+%>
+<style>
+
+    .swiper-pagination-fraction{position:static;margin-top:10px;} /* 블릿 위치 임의처리 : bottom:8px 이 기본값임. */
+
+</style>
+<div class="c-bannerSwiper swiper" id="<%=id %>">
+    <ul class="swiper-wrapper">
+        <li class="swiper-slide"><a href="#"><img src="/images/rectGray.png" alt="일반베너 회색"></a></li>
+        <li class="swiper-slide"><a href="#"><img src="/images/rectBlue.png" alt="일반베너 파랑"></a></li>
+        <li class="swiper-slide"><a href="#"><img src="/images/rectGray.png" alt="일반베너 회색"></a></li>
+        <li class="swiper-slide"><a href="#"><img src="/images/rectBlue.png" alt="일반베너 파랑"></a></li>
+        <li class="swiper-slide"><a href="#"><img src="/images/rectGray.png" alt="일반베너 회색"></a></li>
+        <li class="swiper-slide"><a href="#"><img src="/images/rectBlue.png" alt="일반베너 파랑"></a></li>
+        <li class="swiper-slide"><a href="#"><img src="/images/rectGray.png" alt="일반베너 회색"></a></li>
+        <li class="swiper-slide"><a href="#"><img src="/images/rectBlue.png" alt="일반베너 파랑"></a></li>
+    </ul>
+    <div class="swiper-pagination"></div>
+</div>
+<script>
+$(()=>{
+    new Swiper("#<%=id %>",{
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+        }
+    });
+    function addFractionPlayStop(){
+        
+    }
+});
+</script>

@@ -1,0 +1,7 @@
+
+// 스크롤바 보이지 않기
+@mixin scrollBarHidden{
+    &::-webkit-scrollbar{display:none;}
+    -ms-overflow-style: none;
+    scrollbar-width:none;
+}

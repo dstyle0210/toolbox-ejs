@@ -1,0 +1,6 @@
+// 가로 스냅스크롤 
+.c-scrollSnapX{width:100%;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;@include scrollBarHidden;
+    ul{padding:0;display:flex;}
+    li{margin:0 0 0 15px;flex:0 0 auto;scroll-snap-align:start;}
+    li:first-child{padding-left:0;} 
+}

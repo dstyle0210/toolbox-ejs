@@ -1,6 +1,14 @@
+@import "./setting/val.scss";
+@import "./setting/mixin.scss";
 
 /* atom */
 @import "../../uikit/atom/btn/btn.scss";
 
 /* Component */
 @import "../../uikit/component/btnList/serviceBtns.scss"; // 서비스 바로가기
+
+/* Component > Swipers */
+@import "../../uikit/component/swipers/bannerSwiper.scss"; // 일반 베너형태
+
+/* Component > ScrollSnap */
+@import "../../uikit/component/scrollSnap/scrollSnapX.scss"; //  
