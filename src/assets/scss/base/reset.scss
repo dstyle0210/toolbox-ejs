@@ -1,20 +1,5 @@
-/**
-* 베이스
-* @description 리셋 및 유틸리티
-*
-* @Modification Information
-*
-* 수정일 : 수정자 : 수정내용
-* --------------------------
-* 2023.12.14 : Mabongpapa : 최초생성
-*/
-@import "./setting/val.scss";
 
-
-/*! RESET */
-*,*::before,*::after{box-sizing:border-box;} // 모든 엘리먼트의 박스표시형식을 통일합니다.
-
-/* normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 html{-webkit-text-size-adjust:100%;} // iOS 에서 화면회전시, 글자크기를 조정하는 현상을 방지합니다.
 body{margin:0;}
 main{display:block;} // IE 에서 main 엘리먼트를 인식못하는 현상을 방지합니다.
@@ -23,7 +8,7 @@ a{background-color:transparent;} // IE에서 활성화 링크시 발생되는 �
 addr[title]{border-bottom:0;text-decoration:underline;} // 약자표시(abbreviation) 태그의 title 표시 방법을 변경합니다.
 b,strong{font-weight:bold;} // 강조를 적용합니다.
 button,input,optgroup,select,textarea{font-size:100%;margin:0;}
-button,[type="button"],[type="reset"],[type="submit"],::-webkit-file-upload-button,::file-selector-button{-webkit-appearance:button;}
+button,[type="button"],[type="reset"],[type="submit"],::-webkit-file-upload-button{-webkit-appearance:button;}
 progress{vertical-align: baseline;}
 textarea{overflow: auto;}
 [type="checkbox"],[type="radio"]{box-sizing:border-box;padding:0;}
@@ -33,22 +18,18 @@ template{display:none;} // 템플릿은 보여주지 않는다.
 [hidden]{display:none;} // "hidden" 어트리뷰트를 가진 모든 엘리먼트는 숨긴다.
 
 /* bootstrap Base */
+*,*::before,*::after{box-sizing:border-box;} // 모든 엘리먼트의 박스표시형식을 통일합니다.
 html{-webkit-tap-highlight-color:rgba(#000,0);} // iOS 투명탭시, 흐려지는 현상을 방지합니다.
 img,svg{vertical-align: middle;}
 svg{overflow:hidden;}
 table{caption-side: bottom;border-collapse: collapse;}
 label{display: inline-block;}
 button:focus:not(:focus-visible){outline:0;} // 
-a,button,summary,[role="button"]{cursor:pointer;}
-button,::-webkit-file-upload-button,::file-selector-button{border-radius:0;}
-iframe{border:0;}
+a,button,[role="button"]{cursor:pointer;}
+button{border-radius:0;}
 
-/* other Base */
+/* other */
 input,textarea{
     &[disabled],
     &[disabled]::placeholder{-webkit-text-fill-color:currentcolor;opacity: 1;} // iOS 에서 disabled 인경우, 투명도 및 컬러 조정되는 것 방지
 }
-
-
-/*! common */
-@import "../../uikit/common/typo.scss";
