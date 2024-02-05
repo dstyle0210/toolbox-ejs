@@ -82,6 +82,11 @@ task("server:build",async (done)=>{
     await server.build(Config.buildServerOptions);
     done();
 });
+task("server:bs",async (done)=>{
+    const server = await import("./gulp_modules/servers/bs");
+    await server.bsServer();
+    done();
+});
 
 // 사이트맵 생성
 task("sitemap:save",async (done)=>{
