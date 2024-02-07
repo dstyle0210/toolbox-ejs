@@ -1,0 +1,57 @@
+<%
+    const id = locals.id;
+    const swiperProps = locals.swiperProps ?? {};
+%>
+<style>
+    .c-coverflow{width:100%;}
+    .c-coverflow .swiper-slide{width:40%;}
+    .c-coverflow .m-temp{opacity:0;transition:opacity 1s;} /* 전체 슬라이드 내부를 사라지게 하고 */
+    .c-coverflow .swiper-slide-prev .m-temp{opacity:1;} /* 이전,현재,다음 슬라이드만 보여지도록 처리 */
+    .c-coverflow .swiper-slide-active .m-temp{opacity:1;}
+    .c-coverflow .swiper-slide-next .m-temp{opacity:1;}
+    
+    /* 임시모듈 */
+    .m-temp img{width:100%;}
+    .m-temp p{text-align:center;}
+</style>
+<div class="swiper c-coverflow" id="<%=id %>">
+    <div class="swiper-wrapper">
+        <%for(let i=0;i<10;i++){%>
+            <div class="swiper-slide">
+
+                <div class="m-temp">
+                    <img src="/images/boxBlue.png" alt="">
+                    <p>모듈<%=i %></p>
+                </div>
+
+            </div>
+        <%}%>
+    </div>
+</div>
+
+<script>
+$(()=>{
+    const coverflowSwiper = new Swiper("#<%=id %>",{
+        initialSlide:1,
+        effect:"coverflow",
+        centeredSlides:true,
+        loop:true,
+        slidesPerView:"auto",
+        slideToClickedSlide:true,
+        speed:700,
+        coverflowEffect:{ // 참고 : https://swiperjs.com/types/interfaces/types_modules_effect_coverflow.CoverflowEffectOptions
+            //rotate:0, // 이전,다음 슬라이드의 꺽임각도.
+            scale:0.9, // 이전,다음 슬라이드의 배율(기본값 1)
+            stretch:-100, // 현재슬라이드와 이전다음 슬라이드의 사이의 값. 마이너스 일경우 멀어짐. (기본값 0)
+            depth:550,
+            modifier:1,
+            slideShadows:false // 이전,다음 슬라이드의 그림자 효과 (거의 안쓸듯, 기본값 true)
+        },
+        on:{
+            slideChangeTransitionStart:()=>{
+                console.log("slideChangeTransitionStart")
+            }
+        }
+    });
+});
+</script>
