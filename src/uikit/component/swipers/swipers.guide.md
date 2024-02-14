@@ -1,5 +1,11 @@
 # [C] Swiper 베이스 컴포넌트
 
+## 패럴럭스 적용시간 별도적용
+
+<div class="example"> 
+    <include src="@src/uikit/component/swipers/gsVan.html" props="{id:'example3'}"></include>
+</div>
+
 ## 커버플로우 이용
 
 <div class="example"> 

@@ -1,0 +1,61 @@
+<!--
+https://image.gsshop.com/planprd/banner_NEW_MAIN/639372108_01.jpg
+https://image.gsshop.com/planprd/banner_NEW_MAIN/639513741_01.jpg
+https://image.gsshop.com/planprd/banner_NEW_MAIN/639519457_01.jpg
+https://image.gsshop.com/planprd/banner_NEW_MAIN/639631714_01.jpg
+-->
+<%
+    const id = locals.id;
+%>
+<style>
+    .swiper{width:100%;}
+    .ban-item{position:relative;display:flex;width:100%;overflow:hidden;}
+    .ban-item figure{margin:0;}
+    .ban-item .ban-img{width:100%;flex-shrink:0;}
+    .ban-item .ban-img img{width:100%;height:auto;}
+    .ban-item .ban-info{width:100%;flex-shrink:0;padding:10px;transform:translate3d(-100%, 0, 0);} /* flex 레이아웃에, tansform 으로 x좌표 -100% 로 위로 올리기 */
+</style>
+<div class="swiper" id="<%=id %>">
+    <div class="swiper-wrapper">
+        <%for(let i=0;i<5;i++){%>
+        <article class="ban-item swiper-slide" role="group">
+            <figure class="ban-img" data-swiper-parallax="100%">
+                <img src="https://image.gsshop.com/planprd/banner_NEW_MAIN/640342652_01.png" alt="전국 6년 연속 GS 3년연속 1등 샴푸 닥터그루트">
+            </figure>
+            <div class="ban-info">
+                <strong class="ttl" data-swiper-parallax="-100" data-swiper-parallax-duration="640">닥터그루트 풀케어<br>신규 패키지 공개</strong>
+                <p class="copy" data-swiper-parallax="-150" data-swiper-parallax-duration="680">오늘만 14%추가할인<br>#GS1등 샴푸 #김희철PICK</p>
+            </div>
+            <a class="ban-link" href="/deal/deal.gs?dealNo=1046911592&amp;mseq=W00054-BB-2"><span class="blind">바로가기</span></a>
+        </article>
+        <article class="ban-item swiper-slide" role="group">
+            <figure class="ban-img" data-swiper-parallax="100%">
+                <img src="https://image.gsshop.com/planprd/banner_NEW_MAIN/639513741_01.jpg" alt="전국 6년 연속 GS 3년연속 1등 샴푸 닥터그루트">
+            </figure>
+            <div class="ban-info">
+                <strong class="ttl" data-swiper-parallax="-100" data-swiper-parallax-duration="640">닥터그루트 풀케어<br>신규 패키지 공개</strong>
+                <p class="copy" data-swiper-parallax="-150" data-swiper-parallax-duration="680">오늘만 14%추가할인<br>#GS1등 샴푸 #김희철PICK</p>
+            </div>
+            <a class="ban-link" href="/deal/deal.gs?dealNo=1046911592&amp;mseq=W00054-BB-2"><span class="blind">바로가기</span></a>
+        </article>
+        <%}%>
+    </div>
+</div>
+<!--
+<script>
+var swiper = new Swiper('#<%=id %>', {
+  speed: 600,
+  parallax: true,
+});
+</script>
+-->
+<script>
+    var swiper = new Swiper('#<%=id %>', {
+      speed: 600,
+      parallax: true,
+    });
+    </script>
+
+
+
+
