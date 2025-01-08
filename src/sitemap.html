@@ -71,7 +71,7 @@
                             <% category.pageList.forEach((page)=>{ %>
                                 <li>
                                     <a href="<%=(locals.isTempServer) ? page.buildUrl : page.devUrl %>"><%=page.name %></a>
-                                    <%if(page.stats){%>
+                                    <%if(page.stats!="null"){%>
                                     <details>
                                         <summary><%=page.stats %></summary>
                                         <%if(page.comments.length){%>

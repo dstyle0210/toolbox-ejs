@@ -1,0 +1,33 @@
+<!-- PAGEDOC
+@since 2025.01.08
+@author mabongpapa
+@page [P] Scaffolding > Layout > 스크롤에 따른 포스터 애니메이션(GSAP이용)
+@stats 개발중
+@comment 2025.01.08 만들기 시작함.
+@comment 2025.01.12 디자인 변경했습니다.
+@comment 2025.01.15 여기저기 변경됬어요. 아마도?
+-->
+<include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script> <!-- const gsap -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<link rel="stylesheet" href="/assets/css/uikit.css" />
+<script src="/assets/js/uikit.js"></script>
+
+<style>
+    .tempHeaderWrapper{height:50px;}
+    .tempHeader{position:fixed;top:0;left:0;right:0;height:50px;background:#f5f5f5;}
+</style>
+<main>
+    <div class="tempHeaderWrapper">
+        <section class="tempHeader">상단영역</section>
+    </div>
+    
+    <include src="../../../uikit/component/poster/posterScrollAnimation.ejs"></include>
+    
+    <div style="height:2000px;">본문</div>
+</main>
+<script>
+    // https://ananti.kr/ko/village/specialOffer/D100102?pageId=1560
+</script>
+<include src="../../../layouts/footer/footer.html"></include>

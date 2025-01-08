@@ -1,0 +1,13 @@
+.c-posterScrollAnimation{
+    position:relative;overflow:hidden;height:500px;
+    .m-coverPoster{position: absolute;bottom:0;left:0;z-index:-1;}
+}
+
+.m-coverPoster{
+    display:block;width:100%;height:100%;
+    background-color:transparent;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    > img{display:none;}
+}

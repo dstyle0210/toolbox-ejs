@@ -4,3 +4,4 @@
 - [스크롤 레이아웃:상단 비주얼 고정](./stickyContent.html)
 - [헤더와 별도였다가 붙는 탭](./headerAddTab.html)
 - [초기진입시 발생하는 하단베너스와이퍼](./bottomModalBanner.html)
+- [스크롤에 따른 포스터 애니메이션](./posterImageAnimate.html)
