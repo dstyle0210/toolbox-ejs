@@ -38,6 +38,7 @@ $(()=>{
     $(window).on("scroll",()=>{
         clearTimeout(tick);
         tick = setTimeout(()=>{
+            if(window.scrollY < $("#headerTab").height()) return;
             if(prevScrollY < window.scrollY){
                 $("#layoutWrap").addClass("-scrollUp");
                 ScrollTrigger.refresh(); // scrollTriger의 start 값을 다시 잡기 위해 refreash 처리.

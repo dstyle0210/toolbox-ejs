@@ -2,11 +2,10 @@ interface OPTIONS_posterScrollAnimation {
     wraper:string,
     poster:string
 }
-function posterScrollAnimation(options){
+function posterScrollAnimation(wrapperId:string){
     const opt = {
-        wrapper:".c-posterScrollAnimation",
-        poster:".m-coverPoster",
-        ...options
+        wrapper:wrapperId,
+        poster:".m-coverPoster"
     };
     var heroVisualEl = document.querySelector(`${opt.wrapper} ${opt.poster}`);
     if (heroVisualEl) {

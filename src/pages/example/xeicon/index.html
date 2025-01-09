@@ -1,0 +1,29 @@
+<!-- PAGEDOC
+@since 2025.01.09
+@author mabongpapa
+@page [P] Example > XeIcon
+-->
+<include src="../../../layouts/header/header.html" props="{title:'XeIcon : Example'}"></include>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<main style="padding:20px;">
+    <style>
+        button[aria-extend]{}
+        button{overflow:hidden;position:relative;padding:10px 25px 10px 10px;font-size:16px;transition:0.5s;cursor:pointer;border:2px solid #ccc;-webkit-appearance: none;-moz-appearance: none;appearance: none;background:transparent;border-radius:10px;}
+        button [class^=xi-]{position:absolute;right:2px;transform:translateY(-50%);font-size:20px;transition: 0.3s;}
+        button .xi-angle-up-min{top:50%;}
+        button .xi-angle-down-min{top:150%;}
+        button:hover{background:red;color:#fff;}
+        button:hover [class^=xi-]{color:#fff;}
+        button:hover .xi-angle-up-min{top:-50%;}
+        button:hover .xi-angle-down-min{top:50%;}
+    </style>
+    <button type="button" role="tab" aria-extend="false">버튼영역</button>
+    <script>
+        $(()=>{
+            $("button[aria-extend]").append(`<i class="xi-angle-up-min"></i><i class="xi-angle-down-min"></i>`);
+        });
+    </script>
+</main>
+<include src="../../../layouts/footer/footer.html"></include>
+
+

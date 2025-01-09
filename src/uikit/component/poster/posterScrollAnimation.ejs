@@ -3,9 +3,12 @@
 @author mabongpapa
 @page [C] UIKIT > Component > 스크롤 커버애니메이션(GSAP)
 -->
-<div class="c-posterScrollAnimation">
+<%
+    const componentId = locals.id || 'posterScrollAnimation';
+%>
+<div class="c-posterScrollAnimation" id="<%=componentId%>">
     <include src="../../../uikit/module/poster/coverPoster.ejs"></include>
 </div>
 <script>
-    posterScrollAnimation();
+    posterScrollAnimation("#<%=componentId%>");
 </script>

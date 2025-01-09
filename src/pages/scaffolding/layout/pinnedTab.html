@@ -52,7 +52,10 @@ function tabUi(){
     ScrollTrigger.create({
         trigger: "#demoTab",
         start: "top top", 
-        end: `+=${$("#tabContentWrapper").height()}`, // 탭 고정될 높이(스크롤 대상범위)
+        end:() => {
+            console.log( $("#tabContentWrapper").height() );
+            return "+="+$("#tabContentWrapper").height();
+        } , // 탭 고정될 높이(스크롤 대상범위)
         pin: "#demoTab",
         pinSpacing:false,
         markers:true,

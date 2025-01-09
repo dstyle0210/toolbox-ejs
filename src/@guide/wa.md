@@ -10,6 +10,8 @@
 
 
 ## 링크
+
+### a엘리먼트를 열림닫힘 으로 사용
 ```html
 <!-- 접히고 닫히는 기능의 경우 aria-extend 추가, aria-extend는 button 인 경우에만 적용 되므로, role=button 추가 -->
 <a href="#" role="button" aria-expanded="false">열기</a> <!-- tts 소리 : 접힘 -->
