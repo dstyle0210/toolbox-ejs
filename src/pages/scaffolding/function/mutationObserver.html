@@ -1,0 +1,24 @@
+<!-- PAGEDOC
+@since 2025.01.10
+@author mabongpapa
+@page [P] Example > ES6 > DOM 변화감지
+-->
+<include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
+<main>
+    <script>
+        const mutationObserver = (targetId,callback) => {
+            const targetNode = document.querySelector(targetId);
+            const config = { attributes: true, childList: true, subtree: true };
+            return new MutationObserver((mutations) => {
+                callback(mutations);
+            }).observe(targetNode, config);
+        };
+        mutationObserver('main',(mutations)=>{
+            console.log(mutations);
+        });
+        
+        // Later, you can stop observing
+        // observer.disconnect();
+    </script>
+</main>
+<include src="../../../layouts/footer/footer.html"></include>

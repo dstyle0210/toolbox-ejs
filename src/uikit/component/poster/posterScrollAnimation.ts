@@ -1,3 +1,4 @@
+declare var gsap:any; // gsap lib is required , 
 interface OPTIONS_posterScrollAnimation {
     wraper:string,
     poster:string
@@ -18,7 +19,7 @@ function posterScrollAnimation(wrapperId:string){
             }
         });
         heroVisualTl.to(`${opt.wrapper} ${opt.poster}`, {
-            height: '200px',
+            height: '100px',
             ease: "none",
         }, 0);
     }
