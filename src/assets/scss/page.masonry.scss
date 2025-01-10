@@ -1,0 +1,24 @@
+.masonry {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem; /* Adjust the gap between columns */
+    width: auto;
+}
+
+.masonry-item {
+    margin-bottom: 1rem; /* Adjust the gap between rows */
+    margin-left: 1rem; /* Adjust the gap between columns */
+    width: calc(33.333% - 1rem); /* Adjust the width of each item */
+}
+
+@media (max-width: 768px) {
+    .masonry-item {
+        width: calc(50% - 1rem); /* Adjust the width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .masonry-item {
+        width: 100%; /* Adjust the width for mobile screens */
+    }
+} 
