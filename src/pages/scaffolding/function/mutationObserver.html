@@ -5,20 +5,29 @@
 -->
 <include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
 <main>
+    <div id="test">2초후에 달라질꺼야!</div>
     <script>
+        // 내부 소스가 달라지면 동작함.
         const mutationObserver = (targetId,callback) => {
             const targetNode = document.querySelector(targetId);
             const config = { attributes: true, childList: true, subtree: true };
-            return new MutationObserver((mutations) => {
+            const observer = new MutationObserver((mutations) => {
                 callback(mutations);
-            }).observe(targetNode, config);
+            });
+            observer.observe(targetNode, config);
+            return observer;
         };
-        mutationObserver('main',(mutations)=>{
-            console.log(mutations);
+        const mObserver = mutationObserver('#test',(mutations)=>{
+            console.log("변경됨");
         });
-        
         // Later, you can stop observing
-        // observer.disconnect();
+        // mObserver.disconnect();
+
+        $(function(){
+            setTimeout(()=>{
+                $('#test').text('짠!'); // 변경됨
+            },2000);
+        });
     </script>
 </main>
 <include src="../../../layouts/footer/footer.html"></include>
