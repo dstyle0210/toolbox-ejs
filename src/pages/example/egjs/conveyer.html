@@ -1,0 +1,83 @@
+<!-- PAGEDOC
+@since 2025.01.20
+@author mabongpapa
+@page [P] Example > EgJs > Conveyer
+-->
+<include src="../../../layouts/header/header.html" props="{title:'GSAP : ScrollTrigger'}"></include>
+<script src="https://naver.github.io/egjs-conveyer/release/latest/dist/conveyer.min.js"></script>
+<main>
+    <h2>EgJs</h2>
+    <style>
+        .examples .items.horizontal{height:auto;}
+        .examples .items {
+    height: 400px;
+    overflow: scroll;
+    overscroll-behavior: none;
+    position: relative;
+    user-select: none;
+    white-space: nowrap;
+    width: 100%
+}
+
+.examples .item {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 40px;
+    font-weight: 700;
+    height: 180px;
+    line-height: 180px;
+    overflow: hidden;
+    text-align: center;
+    width: 180px
+}
+.examples .items.horizontal .item {
+    display: inline-block;
+    margin: 5px
+}
+    </style>
+    <div class="examples">
+        <div class="items horizontal">
+            <div class="item">1</div>
+            <div class="item">2</div>
+            <div class="item">3</div>
+            <div class="item">4</div>
+            <div class="item">5</div>
+            <div class="item">6</div>
+            <div class="item">7</div>
+            <div class="item">8</div>
+            <div class="item">9</div>
+            <div class="item">10</div>
+        </div>
+    </div>
+    <script>
+        $(()=>{
+            const conveyer = new Conveyer(".items");
+
+            const events = [
+                "reachStart",
+                "leaveStart",
+                "reachEnd",
+                "leaveEnd",
+                "beginScroll",
+                "finishScroll"
+            ];
+            const names = {
+                reachStart:"맨 처음에 도착",
+                leaveStart:"맨 처음에서 출발",
+                reachEnd:"맨 마지막에 도착",
+                leaveEnd:"맨 마지막에서 출발",
+                beginScroll:"스크롤시작",
+                finishScroll:"스크롤 끝"
+            }
+
+            events.forEach(event=>{
+                conveyer.on(event,(a,b,c)=>{
+                    console.log(names[event],a,b,c);
+                });
+            });
+            console.log(conveyer);
+        });
+    </script>
+</main>
+<include src="../../../layouts/footer/footer.html"></include>
