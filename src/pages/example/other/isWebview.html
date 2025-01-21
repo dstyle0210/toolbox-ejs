@@ -1,0 +1,19 @@
+<!-- PAGEDOC
+@since 2025.01.21
+@author mabongpapa
+@page [P] Example > Other > isWebview
+-->
+<include src="../../../layouts/header/header.html" props="{title:'isWebview 앱 내부 웹뷰인지 확인코드'}"></include>
+<script>
+const isWebview = () => {
+    return (["(?=(iphone|ipad))(?!(.*version))","(?=(android|iphone|ipad))(?=.*(naver|daum|; wv))"]).some((preset)=>{
+        return new RegExp(`(${preset})((?:\\/|\\s|:)([0-9|\\.|_]+))?`, "g").exec( navigator.userAgent.toLowerCase() );
+    });
+};
+</script>
+<main>
+<script>
+    console.log( isWebview() );
+</script>
+</main>
+<include src="../../../layouts/footer/footer.html"></include>

@@ -4,7 +4,7 @@
 @page [P] Example > XeIcon
 -->
 <include src="../../../layouts/header/header.html" props="{title:'XeIcon : Example'}"></include>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
 <main style="padding:20px;">
     <style>
         button[aria-extend]{}
@@ -12,7 +12,9 @@
         button [class^=xi-]{position:absolute;right:2px;transform:translateY(-50%);font-size:20px;transition: 0.3s;}
         button .xi-angle-up-min{top:50%;}
         button .xi-angle-down-min{top:150%;}
-        button:hover{background:red;color:#fff;}
+        button:before{transition:0.3s;content:"";position:absolute;bottom:0;left:0;right:0;height:0;z-index:-1;background:red;}
+        button:hover{color:#fff;}
+        button:hover:before{height:100%;}
         button:hover [class^=xi-]{color:#fff;}
         button:hover .xi-angle-up-min{top:-50%;}
         button:hover .xi-angle-down-min{top:50%;}
